@@ -1,0 +1,236 @@
+# woorido-skills (v1.4.5)
+
+**The Agentic Coding Framework for WooriDo**
+> Transforms AI Coding Assistants into "WooriDo Senior Developers".
+
+---
+
+# 🇰🇷 한국어 (Korean)
+
+**우리두(WooriDo) 에이전틱 코딩 프레임워크**
+> AI 코딩 어시스턴트를 "우리두 팀의 수석 개발자"로 변신시켜줍니다.
+
+## 🚀 v1.4.5 신규 기능
+
+### ✨ UX 워크플로우 (`/ux-flow`)
+- **감정 맵 기반 설계**: 사용자의 '불안'과 '기쁨'을 예측하는 UX Flow 문서 생성
+- **인터랙션 자동화**: `UX_INTERACTIONS` 및 `WDS Motion` 토큰 자동 제안
+
+### ✨ 디자인 시스템 Evolution (v3.0)
+- **Glassmorphism**: `/component` 워크플로우에 Glass 토큰 지원 추가
+- **Motion Physics**: Rolling Counter용 Spring 애니메이션 토큰 레퍼런스 추가
+- **BrixBadge**: 컴포넌트 템플릿에 3D 배지 지원 추가
+
+## 🚀 v1.3.6 신규 기능
+
+### ✨ Hook 시스템
+- **SessionStart**: 프로젝트 컨텍스트 자동 로드
+- **PreToolUse**: 코드 수정 전 핀테크/당도 규칙 검증
+- **PostToolUse**: 수정 후 WDS 토큰 분석
+
+### ✨ PDCA 명령어
+- `/pdca-plan`, `/pdca-analyze`, `/pdca-report`, `/pdca-status`
+
+### ✨ 에이전트 시스템
+- `gap-detector` - 설계-구현 Gap 분석
+- `brix-calculator` - 당도 시스템 검증
+- `fintech-guardian` - 금융 보안 규칙 검사
+- `wds-auditor` - WDS 토큰 사용 감사
+
+### ✨ QA 워크플로우
+- `/quality-check` - 코드 품질 자동 검사
+- `/zero-script-qa` - Docker 로그 기반 QA
+
+---
+
+## 📦 설치 방법
+
+```bash
+npx woorido-skills install
+```
+
+### 설치 확인
+```bash
+npx woorido-skills check
+```
+
+### 제거 (Uninstall)
+```bash
+npx woorido-skills uninstall
+```
+
+배포되는 항목:
+- `.woorido/` (프레임워크 + 에이전트)
+- `.claude/skills/woorido/SKILL.md`
+- `.agent/workflows/*.md` (15개 워크플로우)
+- `hooks/` + `scripts/` (Hook 시스템)
+
+---
+
+## 🛠️ 사용 방법
+
+### PDCA 워크플로우
+```bash
+/pdca-plan user-auth        # 계획 문서 생성
+/pdca-analyze user-auth     # Gap 분석
+/pdca-report user-auth      # 보고서 생성
+/pdca-status                # 전체 PDCA 상태 확인
+/ux-flow user-auth          # 감정 맵 기반 UX Flow 설계 (NEW!)
+```
+
+### QA
+```bash
+/quality-check              # 코드 품질 검사
+/zero-script-qa             # Docker 로그 기반 QA
+```
+
+### 컴포넌트 생성
+```bash
+/component UserCard         # WDS 스타일 컴포넌트
+/api-hook useChallenge      # React Query Hook
+/form JoinChallenge         # Zod 폼
+/spring-api Meeting         # Spring API
+/django-view Analysis       # Django 뷰
+```
+
+---
+
+## 🏗️ 기술 스택
+
+### Frontend
+- **Core**: React 18, Vite, TypeScript
+- **Design**: WDS (WooriDo Design System) - CSS Modules
+- **State**: React Query (Server), Zustand (Client)
+
+### Backend
+- **Main**: Spring Boot 3.2, Java 21, MyBatis, Oracle 21c
+- **Sub**: Django 5.0, Python 3.12, Elasticsearch
+
+## 📜 라이선스
+WeCollavo, WooriDo Team
+
+---
+
+# �� English (Description)
+
+## 🚀 What's New in v1.4.5
+
+### ✨ UX Workflow (`/ux-flow`)
+- **Emotion-First Design**: Generate UX Flow docs mapping user anxiety/delight.
+- **Interaction Planning**: Auto-suggests WDS standard interactions and motion tokens.
+
+### ✨ Design System Evolution (v3.0)
+- **Glassmorphism**: Added `Glass` tokens support to `/component` workflow
+- **Motion Physics**: Added `Spring` animation tokens (Rolling Counter) reference
+- **BrixBadge**: Added 3D variant support to Component templates
+
+## 🚀 What's New in v1.3.6
+
+### ✨ Hook System
+- **SessionStart**: Auto-load project context
+- **PreToolUse**: Validate fintech/brix rules before code changes
+- **PostToolUse**: Analyze WDS token usage after edits
+
+### ✨ PDCA Commands
+- `/pdca-plan`, `/pdca-analyze`, `/pdca-report`, `/pdca-status`
+
+### ✨ Agent System
+- `gap-detector` - Design-implementation gap analysis
+- `brix-calculator` - Brix(당도) system validation
+- `fintech-guardian` - Financial security rules check
+- `wds-auditor` - WDS token usage audit
+
+### ✨ QA Workflows
+- `/quality-check` - Automated code quality inspection
+- `/zero-script-qa` - Docker log-based QA
+
+---
+
+## � Features
+
+### 1. Agentic Framework (`.woorido/`)
+Installs a "Brain" for your AI agent.
+- **_core (Mind)**: Persona (A.M.I.), Genius Thinking Formulas.
+- **_domain (Heart)**: Business Logic (Brix, Penalty, Deposit Lock).
+- **_security (Shield)**: Anti-Ponzi Rules, RBAC Access Control.
+- **strategies (Roles)**: Frontend, Backend, Django, PM behavior guides.
+- **agents**: Domain-specialized AI agents (NEW!)
+
+### 2. Unified Skills (`SKILL.md`)
+Single source of truth for coding styles, tech stack, and conventions.
+
+### 3. Workflows (`.agent/`)
+Automated slash commands for PDCA, QA, and component generation.
+
+### 4. Hook System (NEW!)
+Event-driven context injection for AI assistants.
+
+---
+
+## 📦 Installation
+
+```bash
+npx woorido-skills install
+```
+
+### Verify Installation
+```bash
+npx woorido-skills check
+```
+
+### Uninstallation
+```bash
+npx woorido-skills uninstall
+```
+
+This will deploy:
+- `.woorido/` (Framework + Agents)
+- `.claude/skills/woorido/SKILL.md`
+- `.agent/workflows/*.md` (15 workflows)
+- `hooks/` + `scripts/` (Hook System)
+
+---
+
+## 🛠️ Usage
+
+### Slash Commands
+
+**PDCA & UX Workflow:**
+```bash
+/pdca-plan user-auth        # Create plan document
+/pdca-analyze user-auth     # Gap analysis
+/pdca-report user-auth      # Generate report
+/pdca-status                # Check all PDCA status
+/ux-flow user-auth          # Design UX Flow with Emotion Map (NEW!)
+```
+
+**QA:**
+```bash
+/quality-check              # Run code quality checks
+/zero-script-qa             # Docker log-based QA
+```
+
+**Components:**
+```bash
+/component UserCard         # Create WDS-styled component
+/api-hook useChallenge      # Create React Query hook
+/form JoinChallenge         # Create Zod-validated form
+/spring-api Meeting         # Create Controller/Service/Mapper
+/django-view Analysis       # Create Data Analysis View
+```
+
+---
+
+## 🏗️ Tech Stack
+
+### Frontend
+- **Core**: React 18, Vite, TypeScript
+- **Design**: WDS (WooriDo Design System) - CSS Modules
+- **State**: React Query (Server), Zustand (Client)
+
+### Backend
+- **Main**: Spring Boot 3.2, Java 21, MyBatis, Oracle 21c
+- **Sub**: Django 5.0, Python 3.12, Elasticsearch
+
+## 📜 License
+WeCollavo, WooriDo Team
