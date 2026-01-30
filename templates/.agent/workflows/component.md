@@ -10,13 +10,14 @@ description: Create a WDS-based React component with CSS Modules
 ```
 /component Button
 /component Modal --radix
+/component SuccessAnim --lottie
 /component UserCard --domain
 ```
 
 ## Steps
 
 // turbo
-1. Create folder `src/components/[ComponentName]/`
+1. Create folder `src/components/ui/[ComponentName]/`
 
 // turbo
 2. Create `[ComponentName].tsx` with this template:
@@ -97,6 +98,53 @@ export function Modal({ open, onOpenChange, children }) {
       </Dialog.Portal>
     </Dialog.Root>
   );
+}
+```
+
+## Lottie Animation (--lottie flag)
+
+<!-- Lottie 애니메이션 컴포넌트 생성 -->
+
+```tsx
+import Lottie from 'lottie-react';
+import clsx from 'clsx';
+import styles from './[ComponentName].module.css';
+
+interface [ComponentName]Props {
+  className?: string;
+  animationData: unknown; // Import from assets
+  loop?: boolean;
+}
+
+export function [ComponentName]({ className, animationData, loop = true }: [ComponentName]Props) {
+  return (
+    <div className={clsx(styles.root, className)}>
+      <Lottie 
+        animationData={animationData} 
+        loop={loop} 
+        className={styles.lottie}
+      />
+    </div>
+  );
+}
+```
+
+```css
+.root {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* WDS Spacing */
+  padding: var(--space-4);
+}
+
+.lottie {
+  /* Default Size */
+  width: 100%;
+  max-width: 300px;
+  height: auto;
 }
 ```
 

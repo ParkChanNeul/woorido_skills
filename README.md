@@ -1,4 +1,4 @@
-# woorido-skills (v1.4.5)
+# woorido-skills (v1.5.0)
 
 **The Agentic Coding Framework for WooriDo**
 > Transforms AI Coding Assistants into "WooriDo Senior Developers".
@@ -9,6 +9,20 @@
 
 **우리두(WooriDo) 에이전틱 코딩 프레임워크**
 > AI 코딩 어시스턴트를 "우리두 팀의 수석 개발자"로 변신시켜줍니다.
+
+## 🚀 v1.5.0 신규 기능
+
+### ✨ 백엔드 디자인 패턴 통합
+- **Spring Boot**: Strategy, Visitor, Factory 패턴, Java 17 Record DTO, Lock(Optimistic/Pessimistic)
+- **Django**: Pydantic DTO, Soft Delete Model, Read-Only Oracle View
+- **MyBatis**: Soft Delete (`softDeleteById`) 및 동시성 제어 쿼리 표준화
+
+### ✨ 워크플로우 확장
+- **/git-commit**: 컨벤션을 준수하는 커밋 메시지 생성
+- **/component --lottie**: Lottie 애니메이션 컴포넌트 생성 지원
+
+### ✨ 100% 정합성 검증
+- 워크플로우 ↔ 문서 템플릿(`design/plan/report`) ↔ 에이전트 ↔ 훅 시스템 간 완벽 호환
 
 ## 🚀 v1.4.5 신규 기능
 
@@ -113,6 +127,20 @@ WeCollavo, WooriDo Team
 
 # �� English (Description)
 
+## 🚀 What's New in v1.5.0
+
+### ✨ Backend Design Patterns
+- **Spring Boot**: Strategy, Visitor, Factory, Record DTO, Pessimistic/Optimistic Locks
+- **Django**: Pydantic DTO, Soft Delete, Read-Only Views
+- **MyBatis**: Standardized Soft Delete & Concurrency Control
+
+### ✨ Workflow Extensions
+- **/git-commit**: Generate standardized commit messages
+- **/component --lottie**: Support for Lottie animation components
+
+### ✨ 100% Consistency
+- Verified alignment across Workflows, Doc Templates, Agents, and Hooks
+
 ## 🚀 What's New in v1.4.5
 
 ### ✨ UX Workflow (`/ux-flow`)
@@ -213,8 +241,10 @@ This will deploy:
 **Components:**
 ```bash
 /component UserCard         # Create WDS-styled component
+/component SuccessAnim --lottie # Lottie Animation
 /api-hook useChallenge      # Create React Query hook
 /form JoinChallenge         # Create Zod-validated form
+/git-commit "Add login"     # Generate commit message
 /spring-api Meeting         # Create Controller/Service/Mapper
 /django-view Analysis       # Create Data Analysis View
 ```
