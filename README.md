@@ -1,4 +1,4 @@
-# woorido-skills (v1.5.0)
+# woorido-skills (v1.5.1)
 
 **The Agentic Coding Framework for WooriDo**
 > Transforms AI Coding Assistants into "WooriDo Senior Developers".
@@ -10,7 +10,10 @@
 **우리두(WooriDo) 에이전틱 코딩 프레임워크**
 > AI 코딩 어시스턴트를 "우리두 팀의 수석 개발자"로 변신시켜줍니다.
 
-## 🚀 v1.5.0 신규 기능
+## 🚀 v1.5.1 신규 기능
+
+### ✨ 문서화
+- **사용자 가이드**: '신입 가이드북' (`GUIDE.md`) 추가 - 시나리오별 프롬프트/명령어 전략 수록
 
 ### ✨ 백엔드 디자인 패턴 통합
 - **Spring Boot**: Strategy, Visitor, Factory 패턴, Java 17 Record DTO, Lock(Optimistic/Pessimistic)
@@ -127,7 +130,10 @@ WeCollavo, WooriDo Team
 
 # �� English (Description)
 
-## 🚀 What's New in v1.5.0
+## 🚀 What's New in v1.5.1
+
+### ✨ Documentation
+- **User Guide**: Added `GUIDE.md` ('Beginner Guidebook') - Scenario-based prompts & command strategies
 
 ### ✨ Backend Design Patterns
 - **Spring Boot**: Strategy, Visitor, Factory, Record DTO, Pessimistic/Optimistic Locks
