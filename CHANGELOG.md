@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0] - 2026-02-02
+
+### Added
+- **SKILL.md Refinement**: 코드 예제에 한글 주석을 추가하여 맥락 이해도 향상.
+- **Cross-Reference**: `SKILL.md`와 `AGENTS.md` 간의 상호 참조 연결.
+
+
 All notable changes to `@channeulparks/woorido-skills` will be documented in this file.
 
 

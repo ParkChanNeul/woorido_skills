@@ -1,6 +1,6 @@
 {
   "name": "@channeulparks/woorido-skills",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "WooriDo AI Coding Rules for Claude, Gemini, Antigravity and other AI coding assistants",
   "main": "bin/cli.js",
   "bin": {
