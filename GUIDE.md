@@ -109,6 +109,42 @@ Skills 패키지는 여러분이 코드를 고칠 때마다 옆에서 지켜보�
 
 ---
 
+## 📚 명령어 모음 (Cheat Sheet)
+
+개발 단계별로 사용할 수 있는 명령어들입니다.
+
+### 🎨 Frontend (React/Vite)
+| 명령어 | 용도 | 사용 예시 |
+| :--- | :--- | :--- |
+| **`/component`** | **WDS 스타일 컴포넌트 생성**<br>디자인 시스템 토큰과 스타일이 적용된 컴포넌트 스캐폴딩 | `/component LoginButton --lottie`<br>"/component UserCard --domain" |
+| **`/page`** | **페이지 구조 생성**<br>레이아웃, 데이터 페칭(Suspense)이 포함된 페이지 기본 구조 | `/page Dashboard`<br>"/page LoginPage --auth" |
+| **`/form`** | **폼 & 유효성 검사 생성**<br>React Hook Form + Zod 스키마가 적용된 입력 폼 | `/form LoginForm`<br>"/form SignupForm --step-wizard" |
+| **`/api-hook`** | **React Query 훅 생성**<br>API 상태 관리(로딩, 에러, 캐싱)를 위한 커스텀 훅 | `/api-hook useUserProfile`<br>"/api-hook useTransactionHistory --infinite" |
+| **`/test`** | **단위 테스트 생성**<br>Vitest 기반의 컴포넌트/훅 테스트 코드 작성 | `/test LoginButton`<br>"/test useAuth --hook" |
+
+### 🛠️ Backend (Spring Boot / Django)
+| 명령어 | 용도 | 사용 예시 |
+| :--- | :--- | :--- |
+| **`/spring-api`** | **Spring REST API 생성**<br>Controller, Service, DTO, Entity 구조를 한 번에 생성 | `/spring-api Product`<br>"/spring-api Order --transactional" |
+| **`/django-view`** | **Django ViewSet 생성**<br>DRF ViewSet, Serializer, URL 패턴 생성 | `/django-view User`<br>"/django-view Payment --readonly" |
+| **`/mybatis`** | **MyBatis XML 매퍼 생성**<br>오라클 DB 최적화 쿼리 및 매퍼 인터페이스 생성 | `/mybatis UserMapper`<br>"/mybatis AccountMapper --batch" |
+
+### 📊 Planning & Analysis
+| 명령어 | 용도 | 사용 예시 |
+| :--- | :--- | :--- |
+| **`/ux-flow`** | **UX 흐름도 설계**<br>사용자 감정선과 인터랙션이 포함된 상세 흐름도 작성 | `/ux-flow JoinMembership`<br>"/ux-flow TransferMoney --risk-high" |
+| **`/pdca-plan`** | **기능 개발 계획 (Plan)**<br>구현 전 설계, 필요 리소스, 일정 산정 문서 생성 | `/pdca-plan "QR 결제 기능"` |
+| **`/pdca-analyze`** | **설계-구현 차이 분석 (Check)**<br>기획 의도와 실제 구현 간의 Gap 분석 보고서 | `/pdca-analyze` |
+
+### ✅ Quality & Process
+| 명령어 | 용도 | 사용 예시 |
+| :--- | :--- | :--- |
+| **`/quality-check`** | **코드 품질 자동 검사**<br>Lint, 타입, 디자인 토큰 준수 여부 등 종합 진단 | `/quality-check`<br>"/quality-check src/components" |
+| **`/git-commit`** | **커밋 메시지 생성**<br>프로젝트 컨벤션에 맞는 표준 커밋 메시지 작성 | `/git-commit "로그인 버튼 디자인 수정"` |
+| **`/zero-script-qa`** | **무대본 QA 실행**<br>로그 기반의 탐색적 테스트 및 리포트 주도 | `/zero-script-qa` |
+
+---
+
 ## ❓ 자주 묻는 질문 (FAQ)
 
 **Q. 명령어가 작동을 안 해요.**

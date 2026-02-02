@@ -6,7 +6,9 @@ allowed-tools: Read, Grep, Glob, Edit, Write
 
 # WooriDo Coding Rules
 
+
 <!-- 이 스킬은 WooriDo 프로젝트의 코딩 규칙을 정의합니다 -->
+<!-- 핵심 컨텍스트는 프로젝트 루트의 **AGENTS.md**를 참조하세요 -->
 <!-- Claude, Gemini, Antigravity 등 모든 AI 코딩 도구에서 사용 가능 -->
 
 ## 1. Project Overview
@@ -45,7 +47,7 @@ import styles from './Button.module.css';
 import clsx from 'clsx';
 
 interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost'; // 버튼의 스타일 변형 정의
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   children: React.ReactNode;
@@ -61,9 +63,9 @@ export function Button({
     <button 
       className={clsx(
         styles.button,
-        styles[variant],
+        styles[variant], // 동적 클래스 매핑: variant prop에 따라 스타일 적용
         styles[size],
-        fullWidth && 'w-full'
+        fullWidth && 'w-full' // 조건부 클래스: Tailwind 유틸리티 사용 (레이아웃용)
       )}
     >
       {children}
@@ -115,19 +117,23 @@ export function Button({
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { api } from '@/lib/api';
 
+// 챌린지 상세 정보를 가져오는 Hook
+// React Query를 사용하여 캐싱 및 서버 상태 관리
 export function useChallenge(id: string) {
   return useQuery({
-    queryKey: ['challenge', id],
+    queryKey: ['challenge', id], // 고유 키 설정: 캐시 구분용
     queryFn: () => api.get(`/challenges/${id}`),
   });
 }
 
+// 챌린지 참여 Hook
 export function useJoinChallenge() {
   const queryClient = useQueryClient();
   
   return useMutation({
     mutationFn: (id: string) => api.post(`/challenges/${id}/join`),
     onSuccess: (_, id) => {
+      // 성공 시 해당 챌린지의 캐시를 무효화하여 최신 데이터 조회 유도
       queryClient.invalidateQueries({ queryKey: ['challenge', id] });
     },
   });
@@ -166,6 +172,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
+// Zod 스키마 정의: 폼 유효성 검사 로직을 분리하여 관리
 const schema = z.object({
   title: z.string().min(2, '제목은 2자 이상'),
   deposit: z.number().min(10000, '최소 1만원'),
@@ -175,6 +182,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export function CreateChallengeForm() {
+  // RHF와 zodResolver를 연동하여 검증 자동화
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
@@ -245,7 +253,8 @@ export function CreateChallengeForm() {
 | Animation | `framer-motion` | `<motion.div>` |
 
 ```tsx
-// BottomSheet 예시
+// BottomSheet 예시 (Vaul 라이브러리 사용)
+// 모바일 친화적인 드로어 인터페이스 구현
 import { Drawer } from 'vaul';
 
 <Drawer.Root>
@@ -258,7 +267,8 @@ import { Drawer } from 'vaul';
   </Drawer.Portal>
 </Drawer.Root>
 
-// Toast 예시
+// Toast 예시 (Sonner 라이브러리 사용)
+// 사용자 피드백을 위한 경량 알림 시스템
 import { toast } from 'sonner';
 toast.success('저장되었습니다');
 toast.error('오류가 발생했습니다');
@@ -280,11 +290,13 @@ public class ChallengeController {
 
     private final ChallengeService challengeService;
 
+    // 표준 응답 래퍼(ApiResponse)를 사용하여 일관된 JSON 구조 반환
     @GetMapping("/{id}")
     public ApiResponse<ChallengeDto> getChallenge(@PathVariable String id) {
         return ApiResponse.success(challengeService.findById(id));
     }
 
+    // @Valid 어노테이션으로 Request Body 데이터 검증 수행
     @PostMapping
     public ApiResponse<ChallengeDto> createChallenge(
         @Valid @RequestBody CreateChallengeRequest request
@@ -333,6 +345,7 @@ class RecommendationViewSet(viewsets.ViewSet):
     추천 API - Elasticsearch 기반
     """
     
+    # Custom Action 정의: GET /recommendations/challenges/
     @action(detail=False, methods=['get'])
     def challenges(self, request):
         user_id = request.user.id
