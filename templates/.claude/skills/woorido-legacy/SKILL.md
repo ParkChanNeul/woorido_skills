@@ -10,7 +10,7 @@ Use this skill only for migration and compatibility work.
 1. Read `.woorido/references/legacy/01-architecture.md`.
 2. Read `.woorido/references/legacy/02-api-compat.md`.
 3. Read `.woorido/references/legacy/03-schema-mapping.md`.
-4. Compare with project `docs/00_canonical` before proposing changes.
+4. Compare with project `docs/00_CANONICAL` before proposing changes.
 
 Follow these rules:
 

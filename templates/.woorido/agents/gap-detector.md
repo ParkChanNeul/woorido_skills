@@ -23,7 +23,7 @@ hooks:
 
 ### 문서 우선순위
 
-1. `docs/00_canonical/*`
+1. `docs/00_CANONICAL/*`
 2. feature 설계/계획 문서
 3. 구현 코드
 4. legacy / migration 자료

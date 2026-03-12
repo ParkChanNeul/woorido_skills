@@ -103,7 +103,7 @@ docs/01-plan/features/{feature-name}.plan.md
 - `금융`, `결제`, `정산` 키워드 포함 시 → Fintech 섹션 강조
 - `당도`, `Brix`, `신뢰` 키워드 포함 시 → Brix 섹션 강조
 - `보증금`, `락`, `Lock` 키워드 포함 시 → Deposit 섹션 강조
-- 가능하면 `docs/00_canonical/*` 와 active skill reference를 먼저 참조
+- 가능하면 `docs/00_CANONICAL/*` 와 active skill reference를 먼저 참조
 
 ### 5. 완료 후
 

@@ -12,9 +12,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const TEMPLATES_DIR = fs.existsSync(path.join(__dirname, 'templates'))
-  ? path.join(__dirname, 'templates')
-  : path.resolve(__dirname, '..', 'templates');
+const TEMPLATES_DIR = fs.existsSync(path.join(__dirname, 'TEMPLATES'))
+  ? path.join(__dirname, 'TEMPLATES')
+  : path.resolve(__dirname, '..', 'TEMPLATES');
 const TARGET_DIR = process.cwd();
 
 const colors = {
@@ -97,6 +97,7 @@ function install(options = {}) {
   console.log('  Components:  /component Button, /api-hook challenge');
   console.log('  Active:      Go + PostgreSQL modular monolith');
   console.log('  Legacy:      See .claude/skills/woorido-legacy and .agent/workflows/legacy');
+  console.log('  Maintainer:  Package docs stay in the package repo under DOCS/');
   console.log('  Check:       npx woorido-skills check');
   console.log();
 }

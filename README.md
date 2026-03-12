@@ -15,6 +15,13 @@
 - 기본 skill: `woorido-platform`
 - legacy Spring/Django/Oracle 자료와 워크플로우는 migration 전용입니다.
 
+### Repository Layout
+- `TEMPLATES/`: 설치 대상 워크스페이스에 복사되는 runtime payload
+- `DOCS/`: maintainer용 설계/운영 문서
+- `BIN/`: 설치/점검 CLI
+
+> maintainer 문서 진입점: `./DOCS/README.md`
+
 ## 🚀 v1.5.1 신규 기능
 
 ### ✨ 문서화
@@ -84,8 +91,10 @@ npx woorido-skills uninstall
 배포되는 항목:
 - `.woorido/` (프레임워크 + 에이전트)
 - `.claude/skills/woorido/SKILL.md`
-- `.agent/workflows/*.md` (15개 워크플로우)
-- `hooks/` + `scripts/` (Hook 시스템)
+- `.claude/skills/woorido-legacy/SKILL.md`
+- `.agent/workflows/*.md` (기본 + legacy 분리 워크플로우)
+
+유지보수 문서(`DOCS/`)는 패키지 저장소 안에만 두고, 대상 워크스페이스에는 설치하지 않습니다.
 
 ---
 
@@ -194,7 +203,7 @@ WeCollavo, WooriDo Team
 
 ### 1. Agentic Framework (`.woorido/`)
 Installs a "Brain" for your AI agent.
-- **_core (Mind)**: Persona (A.M.I.), Genius Thinking Formulas.
+- **_core (Mind)**: Persona and thinking modules.
 - **_domain (Heart)**: Business Logic (Brix, Penalty, Deposit Lock).
 - **_security (Shield)**: Anti-Ponzi Rules, RBAC Access Control.
 - **strategies (Roles)**: Frontend, Backend, Django, PM behavior guides.
@@ -230,8 +239,10 @@ npx woorido-skills uninstall
 This will deploy:
 - `.woorido/` (Framework + Agents)
 - `.claude/skills/woorido/SKILL.md`
-- `.agent/workflows/*.md` (15 workflows)
-- `hooks/` + `scripts/` (Hook System)
+- `.claude/skills/woorido-legacy/SKILL.md`
+- `.agent/workflows/*.md` (default + legacy-separated workflows)
+
+Maintainer docs under `DOCS/` stay in the package repository and are not installed into the target workspace.
 
 ---
 

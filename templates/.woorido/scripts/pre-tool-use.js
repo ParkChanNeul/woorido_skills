@@ -67,7 +67,7 @@ function generateWarnings(filePath, content, toolName) {
       type: 'FINTECH',
       severity: 'high',
       message: `💰 금융 관련 코드 수정 감지: [${fintechMatches.join(', ')}]`,
-      rule: 'docs/00_canonical/03_FINANCIAL_MODEL.md 또는 .woorido/references/active/03-financial-model.md 참조 필수',
+      rule: 'docs/00_CANONICAL/03_FINANCIAL_MODEL.md 또는 .woorido/references/active/03-financial-model.md 참조 필수',
       checklist: [
         'append-only 원장 사용 여부',
         'idempotency key 또는 동등한 중복 방지 확인',

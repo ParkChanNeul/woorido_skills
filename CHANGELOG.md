@@ -173,7 +173,7 @@ All notable changes to `@channeulparks/woorido-skills` will be documented in thi
 ### Added
 - Initial npm release as `@channeulparks/woorido-skills`
 - Agentic Framework (`.woorido/`)
-  - `_core/` - A.M.I. Persona, Genius Thinking Formulas
+  - `_core/` - Persona and thinking modules
   - `_domain/` - Brix, Penalty, IA Structure logic
   - `_security/` - Fintech rules, Access control
   - `strategies/` - Frontend, Backend, Django, PM, Architect, Search
@@ -184,7 +184,7 @@ All notable changes to `@channeulparks/woorido-skills` will be documented in thi
   *(KR Translation)*
   - `@channeulparks/woorido-skills`로 초기 npm 배포
   - **에이전틱 프레임워크 (`.woorido/`)**
-    - `_core/` - A.M.I. 페르소나, 천재적 사고 공식
+    - `_core/` - 페르소나 및 사고 모듈
     - `_domain/` - 당도, 페널티, IA 구조 로직
     - `_security/` - 핀테크 규칙, 접근 제어
     - `strategies/` - Frontend, Backend, Django, PM, Architect, Search 전략

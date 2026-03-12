@@ -14,7 +14,7 @@ Use bundled active references first.
 5. Read `.woorido/references/active/04-api-boundary.md`.
 6. Read `.woorido/references/active/05-db-schema.md` only when schema or persistence matters.
 
-If the project contains `docs/00_canonical`, prefer those project docs over bundled references.
+If the project contains `docs/00_CANONICAL`, prefer those project docs over bundled references.
 
 Follow these rules:
 

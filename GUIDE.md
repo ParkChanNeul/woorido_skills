@@ -5,6 +5,7 @@
 아무것도 모르셔도 괜찮습니다. 이 가이드만 따라오시면 여러분도 오늘부터 수석 개발자처럼 코딩할 수 있습니다.
 
 > **중요:** 현재 기본 활성 기준은 `Go + PostgreSQL + Modular Monolith` 입니다. `spring-api`, `mybatis`, `django-view` 는 기본 명령이 아니라 legacy migration 전용입니다.
+> **유지보수자 참고:** 패키지 구조와 운영 문서는 `./DOCS/README.md` 에서 관리합니다. 이 가이드는 설치 사용자 기준 문서입니다.
 
 ---
 
