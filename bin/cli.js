@@ -2,7 +2,7 @@
 
 /**
  * WooriDo Skills CLI
- * 
+ *
  * Usage:
  *   npx woorido-skills install
  *   npx woorido-skills uninstall
@@ -12,10 +12,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const TEMPLATES_DIR = path.join(__dirname, '..', 'templates');
+const TEMPLATES_DIR = fs.existsSync(path.join(__dirname, 'templates'))
+  ? path.join(__dirname, 'templates')
+  : path.resolve(__dirname, '..', 'templates');
 const TARGET_DIR = process.cwd();
 
-// ANSI colors
 const colors = {
   green: (text) => `\x1b[32m${text}\x1b[0m`,
   yellow: (text) => `\x1b[33m${text}\x1b[0m`,
@@ -24,9 +25,6 @@ const colors = {
   dim: (text) => `\x1b[2m${text}\x1b[0m`,
 };
 
-/**
- * Copy files recursively
- */
 function copyRecursive(src, dest, dryRun = false) {
   const files = [];
 
@@ -64,9 +62,6 @@ function copyRecursive(src, dest, dryRun = false) {
   return files;
 }
 
-/**
- * Install command
- */
 function install(options = {}) {
   const { dryRun = false } = options;
 
@@ -93,19 +88,19 @@ function install(options = {}) {
   console.log();
   console.log(colors.dim('Installed:'));
   console.log(colors.dim('  - .woorido/ (Agentic Framework Core + Agents + Hooks + Scripts)'));
+  console.log(colors.dim('  - .claude/skills/woorido/ (active platform skill)'));
+  console.log(colors.dim('  - .claude/skills/woorido-legacy/ (migration skill)'));
   console.log();
   console.log(colors.blue('Usage:'));
   console.log('  PDCA:        /pdca-plan, /pdca-analyze, /pdca-report');
   console.log('  QA:          /quality-check, /zero-script-qa');
   console.log('  Components:  /component Button, /api-hook challenge');
-  console.log('  Framework:   .woorido/ guides AI Agents');
+  console.log('  Active:      Go + PostgreSQL modular monolith');
+  console.log('  Legacy:      See .claude/skills/woorido-legacy and .agent/workflows/legacy');
   console.log('  Check:       npx woorido-skills check');
   console.log();
 }
 
-/**
- * Uninstall command
- */
 function uninstall(options = {}) {
   const { dryRun = false } = options;
 
@@ -120,6 +115,7 @@ function uninstall(options = {}) {
 
   const pathsToDelete = [
     path.join(TARGET_DIR, '.claude', 'skills', 'woorido'),
+    path.join(TARGET_DIR, '.claude', 'skills', 'woorido-legacy'),
     path.join(TARGET_DIR, '.agent', 'workflows'),
     path.join(TARGET_DIR, '.woorido'),
     path.join(TARGET_DIR, 'docs', 'templates'),
@@ -148,45 +144,43 @@ function uninstall(options = {}) {
   console.log();
 }
 
-/**
- * List command
- */
 function list() {
   console.log();
   console.log(colors.blue('📦 WooriDo Skills'));
   console.log();
 
-  console.log(colors.dim('Unified SKILL.md:'));
-  console.log('  .claude/skills/woorido/SKILL.md');
+  console.log(colors.dim('Skills:'));
+  console.log('  .claude/skills/woorido/SKILL.md        (woorido-platform)');
+  console.log('  .claude/skills/woorido-legacy/SKILL.md (migration only)');
   console.log();
 
   console.log(colors.dim('Agentic Framework:'));
-  console.log('  .woorido/_core/persona.md (A.M.I.)');
-  console.log('  .woorido/strategies/*.md  (Role-based Strategies)');
-
+  console.log('  .woorido/_core/persona.md');
+  console.log('  .woorido/references/active/*.md');
+  console.log('  .woorido/references/legacy/*.md');
   console.log();
 
-  console.log(colors.dim('Antigravity Workflows:'));
+  console.log(colors.dim('Default Workflows:'));
   const workflows = [
-    '/component  - Create WDS React component',
-    '/api-hook   - Create React Query hook',
-    '/form       - Create react-hook-form + zod form',
-    '/page       - Create page component',
-    '/test       - Create Vitest tests',
-    '/spring-api - Create Spring Boot API',
-    '/mybatis    - Create MyBatis mapper',
-    '/django-view - Create Django DRF viewset',
+    '/component   - Create WDS React component',
+    '/api-hook    - Create React Query hook',
+    '/form        - Create react-hook-form + zod form',
+    '/page        - Create page component',
+    '/test        - Create Vitest tests',
+    '/pdca-plan   - Create active design plan',
+    '/pdca-analyze - Analyze against active canonical',
+    '/pdca-report - Create completion report',
   ];
 
   for (const wf of workflows) {
     console.log(`  ${wf}`);
   }
+
+  console.log();
+  console.log(colors.dim('Legacy workflows are kept under .agent/workflows/legacy/'));
   console.log();
 }
 
-/**
- * Check command - verify installation status
- */
 function check() {
   console.log();
   console.log(colors.blue('🔍 WooriDo Skills Installation Check'));
@@ -198,6 +192,7 @@ function check() {
     { name: '.woorido/hooks/', path: path.join(TARGET_DIR, '.woorido', 'hooks') },
     { name: '.woorido/scripts/', path: path.join(TARGET_DIR, '.woorido', 'scripts') },
     { name: '.claude/skills/woorido/', path: path.join(TARGET_DIR, '.claude', 'skills', 'woorido') },
+    { name: '.claude/skills/woorido-legacy/', path: path.join(TARGET_DIR, '.claude', 'skills', 'woorido-legacy') },
     { name: '.agent/workflows/', path: path.join(TARGET_DIR, '.agent', 'workflows') },
   ];
 
@@ -221,12 +216,9 @@ function check() {
   console.log();
 }
 
-/**
- * Help command
- */
 function help() {
   console.log();
-  console.log(colors.blue('WooriDo Skills CLI v1.3.0'));
+  console.log(colors.blue('WooriDo Skills CLI v2.0.0'));
   console.log();
   console.log('Commands:');
   console.log('  install     Install skills to current directory');
@@ -239,13 +231,12 @@ function help() {
   console.log('  --dry-run   Show what would happen without making changes');
   console.log();
   console.log('Examples:');
-  console.log('  npx @channeulparks/woorido-skills install');
-  console.log('  npx @channeulparks/woorido-skills check');
-  console.log('  npx @channeulparks/woorido-skills list');
+  console.log('  npx woorido-skills install');
+  console.log('  npx woorido-skills check');
+  console.log('  npx woorido-skills list');
   console.log();
 }
 
-// Parse arguments
 const args = process.argv.slice(2);
 const command = args[0];
 const flags = args.slice(1);
@@ -254,7 +245,6 @@ const options = {
   dryRun: flags.includes('--dry-run'),
 };
 
-// Execute command
 switch (command) {
   case 'install':
     install(options);
@@ -276,7 +266,7 @@ switch (command) {
   case 'version':
   case '--version':
   case '-v':
-    console.log('1.3.6');
+    console.log('2.0.0');
     break;
   default:
     if (command) {

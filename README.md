@@ -10,6 +10,11 @@
 **우리두(WooriDo) 에이전틱 코딩 프레임워크**
 > AI 코딩 어시스턴트를 "우리두 팀의 수석 개발자"로 변신시켜줍니다.
 
+### Active Default
+- 기본 활성 구조: `Go + PostgreSQL + Modular Monolith`
+- 기본 skill: `woorido-platform`
+- legacy Spring/Django/Oracle 자료와 워크플로우는 migration 전용입니다.
+
 ## 🚀 v1.5.1 신규 기능
 
 ### ✨ 문서화
@@ -106,8 +111,13 @@ npx woorido-skills uninstall
 /component UserCard         # WDS 스타일 컴포넌트
 /api-hook useChallenge      # React Query Hook
 /form JoinChallenge         # Zod 폼
-/spring-api Meeting         # Spring API
-/django-view Analysis       # Django 뷰
+```
+
+### Legacy Migration 전용
+```bash
+.agent/workflows/legacy/spring-api.md
+.agent/workflows/legacy/mybatis.md
+.agent/workflows/legacy/django-view.md
 ```
 
 ---
@@ -120,8 +130,8 @@ npx woorido-skills uninstall
 - **State**: React Query (Server), Zustand (Client)
 
 ### Backend
-- **Main**: Spring Boot 3.2, Java 21, MyBatis, Oracle 21c
-- **Sub**: Django 5.0, Python 3.12, Elasticsearch
+- **Active**: Go modular monolith, PostgreSQL, worker
+- **Legacy**: Spring Boot + Django + Oracle + Elasticsearch (migration only)
 
 ## 📜 라이선스
 WeCollavo, WooriDo Team
@@ -251,8 +261,13 @@ This will deploy:
 /api-hook useChallenge      # Create React Query hook
 /form JoinChallenge         # Create Zod-validated form
 /git-commit "Add login"     # Generate commit message
-/spring-api Meeting         # Create Controller/Service/Mapper
-/django-view Analysis       # Create Data Analysis View
+```
+
+**Legacy Migration Only:**
+```bash
+.agent/workflows/legacy/spring-api.md
+.agent/workflows/legacy/mybatis.md
+.agent/workflows/legacy/django-view.md
 ```
 
 ---
@@ -265,8 +280,8 @@ This will deploy:
 - **State**: React Query (Server), Zustand (Client)
 
 ### Backend
-- **Main**: Spring Boot 3.2, Java 21, MyBatis, Oracle 21c
-- **Sub**: Django 5.0, Python 3.12, Elasticsearch
+- **Active**: Go modular monolith, PostgreSQL, worker
+- **Legacy**: Spring Boot + Django + Oracle + Elasticsearch (migration only)
 
 ## 📜 License
 WeCollavo, WooriDo Team

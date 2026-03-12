@@ -4,6 +4,8 @@ description: Create MyBatis Mapper interface and XML for Oracle
 
 # /mybatis [ResourceName]
 
+Legacy only. Use this workflow only with `$woorido-legacy` for migration or compatibility work.
+
 <!-- MyBatis Mapper 인터페이스 및 Oracle SQL XML 생성 -->
 
 ## Usage

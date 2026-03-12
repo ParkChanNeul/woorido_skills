@@ -4,6 +4,8 @@ description: Create a Spring Boot REST API controller and service
 
 # /spring-api [ResourceName]
 
+Legacy only. Use this workflow only with `$woorido-legacy` for migration or compatibility work.
+
 <!-- Spring Boot REST API 컨트롤러 및 서비스 생성 -->
 
 ## Usage

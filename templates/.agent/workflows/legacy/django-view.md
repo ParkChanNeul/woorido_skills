@@ -4,6 +4,8 @@ description: Create Django REST Framework ViewSet and Serializer
 
 # /django-view [ResourceName]
 
+Legacy only. Use this workflow only with `$woorido-legacy` for migration or compatibility work.
+
 <!-- Django REST Framework ViewSet 및 Serializer 생성 -->
 
 ## Usage
